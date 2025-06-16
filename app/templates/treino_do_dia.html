@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Treino de {{ hoje }}</h2>
+
+    <form method="POST">
+        <label>Selecione o grupo muscular:</label><br>
+        <select name="grupo" onchange="this.form.submit()">
+            <option value="">-- Escolha --</option>
+            {% for grupo in grupos %}
+                <option value="{{ grupo }}" {% if grupo == grupo_selecionado %}selected{% endif %}>{{ grupo }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if exercicios %}
+    <form method="POST">
+        <input type="hidden" name="salvar" value="1">
+        <h3>Exercícios do grupo: {{ grupo_selecionado }}</h3>
+        {% for ex in exercicios %}
+            <div style="border:1px solid #ccc; border-radius:10px; padding:10px; margin:10px 0; background:#fff;">
+                {% if ex.imagem %}
+                    <img src="{{ url_for('static', filename='images/' ~ ex.imagem) }}" alt="{{ ex.nome }}" style="max-width:100px; float:right;">
+                {% endif %}
+                <label>
+                    <input type="checkbox" name="exercicio" value="{{ ex.nome }}"> {{ ex.nome }}
+                </label><br>
+                Peso (kg): <input type="number" name="peso" step="0.1" style="width: 80px;">
+                <div style="clear:both;"></div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="button-principal">Salvar treino</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container" style="max-width: 800px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2em; color: #002244; margin-bottom: 40px;">Treinos da Semana</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+        <!-- Linha 1 -->
+        <div>
+            <a href="{{ url_for('main.treino_a') }}">
+                <img src="{{ url_for('static', filename='images/woody.png') }}" alt="Treino A" style="width: 100%; max-width: 250px; border-radius: 10px;">
+            </a>
+        </div>
+        <div>
+            <a href="{{ url_for('main.treino_a') }}" style="font-size: 10em; font-weight: bold; color: #002244; text-decoration: none;">A</a>
+        </div>
+
+        <!-- Linha 2 -->
+        <div>
+            <a href="{{ url_for('main.treino_b') }}" style="font-size: 10em; font-weight: bold; color: #002244; text-decoration: none;">B</a>
+        </div>
+        <div>
+            <a href="{{ url_for('main.treino_b') }}">
+                <img src="{{ url_for('static', filename='images/luffy.png') }}" alt="Treino B" style="width: 100%; max-width: 250px; border-radius: 10px;">
+            </a>
+        </div>
+
+        <!-- Linha 3 -->
+        <div>
+            <a href="{{ url_for('main.treino_c') }}">
+                <img src="{{ url_for('static', filename='images/woody_luffy.png') }}" alt="Treino C" style="width: 100%; max-width: 250px; border-radius: 10px;">
+            </a>
+        </div>
+        <div>
+            <a href="{{ url_for('main.treino_c') }}" style="font-size: 10em; font-weight: bold; color: #002244; text-decoration: none;">C</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

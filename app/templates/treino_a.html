@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div style="background: linear-gradient(to bottom, #0059b3, #004080); padding: 20px; min-height: 100vh;">
+    <h2 style="color: white; text-align: center; margin-bottom: 30px;">Treino A</h2>
+
+    <div style="max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
+
+        {% set exercicios = [
+            ('Mobilidade de Ombro c/ faixa cinza', '2x10', url_for('static', filename='images/mobilidade_faixa.png')),
+            ('Mobilidade de Ombro c/ bastão (rotação unilateral)', '2x10/10', url_for('static', filename='images/mobilidade_barra.png')),
+            ('Abdução Horizontal de Ombro na polia', '5', url_for('static', filename='images/abducao_horizontal.png')),
+            ('Puxada Neutra polia', '40', url_for('static', filename='images/puxada_neutra_polia.png')),
+            ('Puxada Supinada polia', '40', url_for('static', filename='images/puxada_supinada_polia.png')),
+            ('Pull Over c/ halter (deitado em 2 steps)', '8', url_for('static', filename='images/pullover.png')),
+            ('Elevação Lateral c/ halter', '3', url_for('static', filename='images/elevacao_lateral_halter.png')),
+            ('Desenvolvimento Aberto c/ halteres (sentado)', '5', url_for('static', filename='images/desenvolvimento_aberto.png')),
+            ('Deslocamento Lateral c/ mini band (elástico)', '', url_for('static', filename='images/deslocamento_lateral.png')),
+            ('Abdução de Quadril na polia baixa', '10', 'https://via.placeholder.com/100'),
+            ('Adutora', '15', 'https://via.placeholder.com/100'),
+            ('ABD. Supra c/ bastão', '', 'https://via.placeholder.com/100')
+        ] %}
+
+        {% for nome, carga, imagem in exercicios %}
+        <div style="background-color: white; border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 15px;">
+            <img src="{{ imagem }}" alt="{{ nome }}" style="width: 70px; height: 70px; border-radius: 10px; object-fit: cover;">
+            <div style="text-align: left;">
+                <p style="margin: 0; font-weight: bold; font-size: 1.1em; color: #002244;">{{ nome }}</p>
+                {% if carga %}<p style="margin: 0; color: gray; font-size: 0.95em;">{{ carga }}</p>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

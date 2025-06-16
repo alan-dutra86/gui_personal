@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container" style="text-align: center; padding-top: 40px;">
+    <h1 style="font-size: 2.2em; color: #002244;">Bem-vindo ao<br>Gui Personal Trainer 💪</h1>
+    <p style="font-size: 1.2em; margin-top: 10px; color: #333;">Seu app de musculação está no ar!</p>
+
+    <img src="{{ url_for('static', filename='images/gui.png') }}" alt="Instrutora" style="width: 200px; margin: 30px 0;">
+
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('main.treinos_da_semana') }}" class="button-principal" style="display: inline-block; width: 80%; font-size: 1.1em; padding: 14px 0; background-color: #002244;">Montar Treino</a>
+    </div>
+
+    <div>
+        <a href="{{ url_for('main.treinos') }}" class="button-principal" style="display: inline-block; width: 80%; font-size: 1.1em; padding: 14px 0; background-color: #002244;">Histórico de Treinos</a>
+    </div>
+</div>
+{% endblock %}

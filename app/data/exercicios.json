@@ -1,0 +1,52 @@
+[
+  {
+    "nome": "Supino Reto",
+    "grupo": "Peito",
+    "imagem": "supino.png"
+  },
+  {
+    "nome": "Crucifixo",
+    "grupo": "Peito",
+    "imagem": "crucifixo.png"
+  },
+  {
+    "nome": "Desenvolvimento com Halteres",
+    "grupo": "Ombro",
+    "imagem": "desenvolvimento.png"
+  },
+  {
+    "nome": "Elevação Lateral",
+    "grupo": "Ombro",
+    "imagem": "lateral.png"
+  },
+  {
+    "nome": "Puxada Frente",
+    "grupo": "Costas",
+    "imagem": "puxada.png"
+  },
+  {
+    "nome": "Remada Baixa",
+    "grupo": "Costas",
+    "imagem": "remada.png"
+  },
+  {
+    "nome": "Rosca Direta",
+    "grupo": "Bíceps",
+    "imagem": "rosca_direta.png"
+  },
+  {
+    "nome": "Tríceps Corda",
+    "grupo": "Tríceps",
+    "imagem": "triceps_corda.png"
+  },
+  {
+    "nome": "Agachamento Livre",
+    "grupo": "Pernas",
+    "imagem": "agachamento.png"
+  },
+  {
+    "nome": "Leg Press",
+    "grupo": "Pernas",
+    "imagem": "leg_press.png"
+  }
+]

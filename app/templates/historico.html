@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Histórico de Treinos</h2>
+
+    {% if treinos %}
+        {% for data, lista in treinos.items()|sort(reverse=true) %}
+            <div style="margin-bottom: 25px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+                <h3>{{ data }}</h3>
+                <ul style="padding-left: 20px;">
+                    {% for ex in lista %}
+                        <li>{{ ex.nome }} — {{ ex.peso }} kg</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Você ainda não registrou nenhum treino.</p>
+    {% endif %}
+</div>
+{% endblock %}
