@@ -1,5 +1,83 @@
 {% extends 'layout.html' %}
+
 {% block content %}
-<h2>Treino B</h2>
-<p>Aqui você pode montar ou visualizar o treino B.</p>
+<div style="background: linear-gradient(to bottom, #0059b3, #004080); padding: 20px; min-height: 100vh;">
+    <h2 style="color: white; text-align: center; margin-bottom: 30px;">Treino A</h2>
+
+    <div style="max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
+
+        {% set exercicios = [
+            ('Mobilidade de Ombro c/ faixa cinza', '2x10', url_for('static', filename='images/mobilidade_ faixa.png')),
+            ('Mobilidade de Ombro c/ bastão (rotação unilateral)', '2x10/10', url_for('static', filename='images/mobilidade_barra.png')),
+            ('Abdução Horizontal de Ombro na polia', '5', url_for('static', filename='images/abducao_horizontal.png')),
+            ('Puxada Neutra polia', '40', url_for('static', filename='images/puxada_neutra_polia.png')),
+            ('Puxada Supinada polia', '40', url_for('static', filename='images/puxada_supinada_polia.png')),
+            ('Pull Over c/ halter (deitado em 2 steps)', '8', url_for('static', filename='images/pullover.png')),
+            ('Elevação Lateral c/ halter', '3', url_for('static', filename='images/elevacao_lateral_halter.png')),
+            ('Desenvolvimento Aberto c/ halteres (sentado)', '5', url_for('static', filename='images/desenvolvimento_aberto.png')),
+            ('Deslocamento Lateral c/ mini band (elástico)', '', url_for('static', filename='images/deslocamento_lateral.png')),
+            ('Abdução de Quadril na polia baixa', '10', url_for('static', filename='images/ab_quadril.png')),
+            ('Adutora', '15', url_for('static', filename='images/abdutora.png')),
+            ('ABD. Supra c/ bastão', '', url_for('static', filename='images/supra_bastao.png'))
+        ] %}
+
+        {% for nome, carga, imagem in exercicios %}
+        <div class="exercicio-card" onclick="this.classList.toggle('feito')">
+            <img src="{{ imagem }}" alt="{{ nome }}">
+            <div class="exercicio-info">
+                <p class="nome">{{ nome }}</p>
+                {% if carga %}<p class="carga">{{ carga }}</p>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<style>
+    .exercicio-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .exercicio-card.feito {
+        background-color: #d4edda;
+        border: 2px solid #28a745;
+    }
+
+    .exercicio-card.feito .nome::after {
+        content: ' ✅';
+        color: #28a745;
+    }
+
+    .exercicio-card img {
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .exercicio-info {
+        text-align: left;
+    }
+
+    .exercicio-info .nome {
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #002244;
+    }
+
+    .exercicio-info .carga {
+        margin: 0;
+        color: gray;
+        font-size: 0.95em;
+    }
+</style>
 {% endblock %}
